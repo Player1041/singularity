@@ -22,6 +22,9 @@
       <a href="https://github.com/itchybeard/singularity" v-tippy="{ content: 'GitHub' }" class="icon">
         <IconComponent name="github" />
       </a>
+      <a href="https://discord.gg/HswvED9v6a" v-tippy="{ content: 'Discord' }" class="icon">
+        <IconComponent name="discord" />
+      </a>
       <LocaleSwitcherComponent />
     </div>
   </footer>
