@@ -10,7 +10,6 @@ import {
   WZ_MASTERY_CAMOS,
 } from '../../camouflages/definitions'
 
-// Using the MXR-17 challenges as a template for all ARs
 const specialCamouflages = {
   "M15 Mod 0": {
     "multiplayer": {
@@ -24,9 +23,9 @@ const specialCamouflages = {
       "Pathfinder": { "amount": 300, "type": "kills_with_cryo_freeze" }
     },
     "campaign": {
-      "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
-      "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
+      "Cinder": { "amount": 50, "type": "kills_shortly_after_sprinting" },
+      "Caiman": { "amount": 100, "type": "kills_with_4x_or_higher_magnification_scope" },
+      "Network": { "amount": 100, "type": "specific_enemy_kills", "enemy": 'Fear' }
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },
@@ -47,9 +46,9 @@ const specialCamouflages = {
       "Pathfinder": { "amount": 300, "type": "kills_with_cryo_freeze" }
     },
     "campaign": {
-      "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
-      "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
+      "Cinder": { "amount": 50, "type": "kills_shortly_after_sprinting" },
+      "Caiman": { "amount": 50, "type": "kills_while_moving_ads" },
+      "Network": { "amount": 100, "type": "specific_enemy_kills", "enemy": 'Human' }
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },
@@ -71,7 +70,7 @@ const specialCamouflages = {
     },
     "campaign": {
       "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
+      "Caiman": { "amount": 100, "type": "kills_at_rare_rarity" },
       "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
     },
     "warzone": {
@@ -93,9 +92,9 @@ const specialCamouflages = {
       "Pathfinder": { "amount": 300, "type": "kills_with_cryo_freeze" }
     },
     "campaign": {
-      "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
-      "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
+      "Cinder": { "amount": 3, "type": "rapid_kills", "times": 10 },
+      "Caiman": { "amount": 50, "type": "kills_with_specific_attachment_tac", "attachment": "Tactical Laser" },
+      "Network": { "amount": 50, "type": "kills_while_moving_ads" },
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },
@@ -116,9 +115,9 @@ const specialCamouflages = {
       "Pathfinder": { "amount": 300, "type": "kills_with_cryo_freeze" }
     },
     "campaign": {
-      "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
-      "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
+      "Cinder": { "amount": 3, "type": "rapid_kills", "times": 10 },
+      "Caiman": { "amount": 25, "type": "kill_shortly_after_movement" },
+      "Network": { "amount": 100, "type": "kills_with_specific_attachment", "attachment": "Extended Mag" },
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },
@@ -139,9 +138,9 @@ const specialCamouflages = {
       "Pathfinder": { "amount": 300, "type": "kills_with_cryo_freeze" }
     },
     "campaign": {
-      "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
-      "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
+      "Cinder": { "amount": 10, "type": "kills_without_reloading", "times": 10 },
+      "Caiman": { "amount": 100, "type": "specific_enemy_kills", "enemy": 'Guild Tech' },
+      "Network": { "amount": 25, "type": "kill_shortly_after_movement" },
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },

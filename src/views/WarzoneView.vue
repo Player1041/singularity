@@ -56,6 +56,11 @@ export default {
           options: this.weaponCategories,
         },
         {
+          label: this.$t('filters.hide_military'),
+          key: 'hideMilitaryCamos',
+          type: 'checkbox',
+        },
+        {
           label: this.$t('filters.hide_golden_damascus'),
           key: 'hideGoldenDamascus',
           type: 'checkbox',

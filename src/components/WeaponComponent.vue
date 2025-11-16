@@ -37,7 +37,7 @@
       </div>
 
       <div
-        v-if="!weapon.comingSoon"
+        v-if="!weapon.comingSoon && !filters.hideMilitaryCamos"
         class="progress"
         :style="{
           'grid-template-rows': `${layout === 'list' ? 'repeat(9, 1fr)' : ''}`,
@@ -167,7 +167,7 @@ export default {
   },
 
   computed: {
-    ...mapState(useStore, ['weaponRequirements', 'preferences']),
+    ...mapState(useStore, ['weaponRequirements', 'preferences', 'filters']),
 
     layout() {
       return this.preferences.layout
@@ -248,14 +248,20 @@ export default {
     translateChallenge(challenge) {
       if (!challenge) return 'TBA'
 
-      const { amount, type, seconds, times } = challenge
+      const { amount, type, seconds, times, enemy, attachment } = challenge
 
-      if (seconds) {
+      if (enemy) {
+        return this.$t(`challenges.types.${type}`, { amount, enemy })
+      } else if (attachment) {
+        return this.$t(`challenges.types.${type}`, { amount, attachment })
+      } else if (seconds) {
         return this.$t(`challenges.types.${type}`, { amount, seconds, times })
       } else if (times) {
         return this.$t(`challenges.types.${type}`, { amount, times })
-      } else {
+      } else if (amount) {
         return this.$t(`challenges.types.${type}`, { amount })
+      } else {
+        return this.$t(`challenges.types.${type}`)
       }
     },
 

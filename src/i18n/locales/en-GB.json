@@ -15,6 +15,7 @@
     "grid": "Grid",
     "hide": "Hide",
     "list": "List",
+    "table": "Table",
     "made_by": "Made by {0}.",
     "inspired_by": "Inspired by {0}.",
     "mastery": "Mastery",
@@ -38,7 +39,11 @@
     "warzone": "Warzone",
     "zombies": "Zombies",
     "campaign": "Campaign",
-    "prestige": "Prestige"
+    "universal": "Universal",
+    "weapon_specific": "Weapon Specific",
+    "prestige": "Prestige",
+    "show_debug": "Show Debug",
+    "hide_debug": "Hide Debug"
   },
   "filters": {
     "hide_completed": "Hide completed",
@@ -58,6 +63,7 @@
     "hide_starglass": "Hide Starglass",
     "hide_absolute_zero": "Hide Absolute Zero",
     "hide_apocalypse": "Hide Apocalypse",
+    "hide_military": "Hide Military Camos",
     "toggle_favorite": "{state} favorites",
     "toggle_favorites": "Toggle favorites",
     "toggle_layout": "Toggle layout"
@@ -325,10 +331,10 @@
       "vermin_eliminations": "{amount} Vermin eliminations",
       "vermin_kills": "{amount} Vermin kills",
       "zombie_kills_while_affected_by_tactical": "{amount} Zombie kills while they are affected by your Tactical",
+      "kills_while_affected_by_tactical": "{amount} kills while they are affected by your Tactical",
       "zombie_kills_after_using_field_upgrade": "Get {amount} Kills shortly after using a Field Upgrade",
       "point_blank_kills": "Get {amount} Point-Blank Kills",
       "one_shot_kills": "Get {amount} One-Shot Kills",
-      "kills_while_affected_by_tactical": "Get {amount} kills while enemy is affected by Tactical Equipment",
       "unlock_tempest_30_weapons": "Unlock Tempest on 30 weapons",
       "consecutive_kills_without_taking_damage": "Get {amount} consecutive kills without taking damage {times} times",
       "unlock_doomsteel_30_weapons": "Unlock Doomsteel on 30 weapons",
@@ -355,9 +361,9 @@
       "kills_without_taking_damage": "Get {amount} Eliminations without taking damage",
       "kills_without_taking_damage_times": "Get {amount} Eliminations without taking damage {times} times",
       "kills_with_specific_attachment": "Get {amount} kills with {attachment} Equipped",
+      "kills_with_specific_attachment_tac": "Get {amount} kills in Tac Stance with {attachment} Equipped",
       "zombie_perk_kills": "Get {amount} kills with {perk} activations",
       "TBD": "Challenge To Be Determined"
-
     }
   },
   "weapon_categories": {
@@ -370,6 +376,6 @@
     "Melee": "Melee",
     "Shotguns": "Shotguns",
     "Sniper Rifles": "Sniper Rifles",
-    "Sub Machine Guns": "Submachine Guns"
+    "Sub Machine Guns": "Sub Machine Guns"
   }
 }

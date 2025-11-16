@@ -20,5 +20,7 @@ export default {
   hideStarglass: false,
   hideAbsoluteZero: false,
   hideApocalypse: false,
+
+  hideMilitaryCamos: false,
   search: '',
 }

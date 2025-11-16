@@ -4,7 +4,8 @@
     @click="toggleLayout()"
     v-tippy="{ content: $t('filters.toggle_layout') }">
     <IconComponent v-if="layout === 'grid'" name="apps" iconStyle="solid" size="18" />
-    <IconComponent v-else name="list-ul" size="18" />
+    <IconComponent v-else-if="layout === 'list'" name="list-ul" size="18" />
+    <IconComponent v-else name="table" size="18" />
     <span>{{ layoutLabel }}</span>
   </button>
 </template>
@@ -22,7 +23,9 @@ export default {
     },
 
     layoutLabel() {
-      return this.layout === 'grid' ? this.$t('general.grid') : this.$t('general.list')
+      if (this.layout === 'grid') return this.$t('general.grid')
+      if (this.layout === 'list') return this.$t('general.list')
+      return this.$t('general.table')
     },
   },
 
@@ -31,7 +34,13 @@ export default {
 
     toggleLayout() {
       const preferences = JSON.parse(JSON.stringify(this.preferences))
-      preferences.layout = this.layout === 'grid' ? 'list' : 'grid'
+      if (this.layout === 'grid') {
+        preferences.layout = 'list'
+      } else if (this.layout === 'list') {
+        preferences.layout = 'table'
+      } else {
+        preferences.layout = 'grid'
+      }
       this.updatePreferences(preferences)
     },
 

@@ -8,7 +8,18 @@
         </span>
       </h2>
 
-      <transition-group v-if="favorites.length > 0" name="fade" tag="div" class="weapons">
+      <div v-if="preferences.layout === 'table' && favorites.length > 0">
+        <WeaponsTable
+          :categories="{ favorites: favorites }"
+          :progressKey="progressKey"
+          :isFavorites="true" />
+      </div>
+
+      <transition-group
+        v-else-if="preferences.layout !== 'table' && favorites.length > 0"
+        name="fade"
+        tag="div"
+        class="weapons">
         <WeaponComponent
           v-for="weapon in favorites"
           :key="weapon.name"
@@ -18,7 +29,7 @@
       </transition-group>
 
       <AlertComponent
-        v-else
+        v-if="favorites.length === 0"
         type="empty-state"
         :style="{ padding: progressKey === 'progress' ? '42px 15px' : '32px 15px 31px' }">
         <i18n-t keypath="general.no_favorites_placeholder" scope="global">
@@ -30,31 +41,36 @@
       </AlertComponent>
     </div>
 
-    <div
-      v-for="(category, title, index) in weapons"
-      :key="title"
-      :data-index="index"
-      class="category">
-      <h2>
-        <span
-          v-tippy="{ content: $t('pages.multiplayer.double_click_category_tooltip') }"
-          @dblclick="toggleCategoryCompleted(title, progressKey)">
-          {{ $t('weapon_categories.' + title) }}
-        </span>
-        <span v-tippy :content="$t('pages.multiplayer.completed_in_category')">
-          {{ categoryProgress(title) }}
-        </span>
-      </h2>
-
-      <transition-group name="fade" tag="div" class="weapons">
-        <WeaponComponent
-          v-for="weapon in category"
-          :key="weapon.name"
-          :weapon="weapon"
-          :camouflages="camouflages(weapon)"
-          :progressKey="progressKey" />
-      </transition-group>
+    <div v-if="preferences.layout === 'table'" :key="'table-layout'" class="category">
+      <WeaponsTable :categories="weapons" :progressKey="progressKey" />
     </div>
+    <template v-else>
+      <div
+        v-for="(category, title, index) in weapons"
+        :key="title"
+        :data-index="index"
+        class="category">
+        <h2>
+          <span
+            v-tippy="{ content: $t('pages.multiplayer.double_click_category_tooltip') }"
+            @dblclick="toggleCategoryCompleted(title, progressKey)">
+            {{ $t('weapon_categories.' + title) }}
+          </span>
+          <span v-tippy :content="$t('pages.multiplayer.completed_in_category')">
+            {{ categoryProgress(title) }}
+          </span>
+        </h2>
+
+        <transition-group name="fade" tag="div" class="weapons">
+          <WeaponComponent
+            v-for="weapon in category"
+            :key="weapon.name"
+            :weapon="weapon"
+            :camouflages="camouflages(weapon)"
+            :progressKey="progressKey" />
+        </transition-group>
+      </div>
+    </template>
   </transition-group>
 
   <div v-if="Object.keys(weapons).length === 0" class="finished-placeholder">
@@ -69,11 +85,13 @@ import { filterObject } from '@/utils/utils'
 
 import AlertComponent from '@/components/AlertComponent.vue'
 import WeaponComponent from '@/components/WeaponComponent.vue'
+import WeaponsTable from '@/components/WeaponsTable.vue'
 
 export default {
   components: {
     AlertComponent,
     WeaponComponent,
+    WeaponsTable,
   },
 
   props: {

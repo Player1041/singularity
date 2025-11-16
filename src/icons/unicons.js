@@ -34,6 +34,7 @@ import {
   uniSearch,
   uniStar,
   uniStarSolid,
+  uniTable,
   uniTimes,
   uniTrash,
 } from 'vue-unicons/dist/icons'
@@ -72,6 +73,7 @@ Unicon.add([
   uniStarSolid,
   uniTimes,
   uniTrash,
+  uniTable
 ])
 
 export default Unicon

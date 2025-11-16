@@ -23,9 +23,9 @@ const specialCamouflages = {
       "Pathfinder": { "amount": 300, "type": "kills_with_cryo_freeze" }
     },
     "campaign": {
-      "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
-      "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
+      "Cinder": { "amount": 3, "times": 10, "type": "kills_without_releasing_trigger" },
+      "Caiman": { "amount": 100, "type": "kills_with_specific_attachment", "attachment": "Extended Mag" },
+      "Network": { "amount": 50, "type": "specific_enemy_kills", "enemy": 'Human' }
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },
@@ -46,9 +46,9 @@ const specialCamouflages = {
       "Pathfinder": { "amount": 300, "type": "kills_with_cryo_freeze" }
     },
     "campaign": {
-      "Cinder": { "amount": 150, "type": "kills_with_8_attachments" },
-      "Caiman": { "amount": 150, "type": "kills_at_rare_rarity" },
-      "Network": { "amount": 3, "type": "rapid_kills", "times": 10 }
+      "Cinder": { "amount": 25, "type": "destructions_guild" },
+      "Caiman": { "amount": 3, "times": 10, "type": "kills_without_releasing_trigger" },
+      "Network": { "amount": 100, "type": "kills_with_8_attachments" }
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },
