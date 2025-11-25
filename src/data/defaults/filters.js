@@ -22,5 +22,6 @@ export default {
   hideApocalypse: false,
 
   hideMilitaryCamos: false,
+  hideMiddlePrestigeCamos: false,
   search: '',
 }

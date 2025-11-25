@@ -192,7 +192,14 @@ export default {
 
     label() {
       if (this.weapon.comingSoon) {
+        // If a specific release date is set, show "Available DD/MM"
+        if (this.weapon.releaseDate) {
+          const date = new Date(this.weapon.releaseDate)
+          return `Available ${date.getDate()}/${date.getMonth() + 1}`
+        }
         return this.$t('general.coming_soon')
+      } else if (this.weapon.season && this.weapon.season > 0) {
+        return `Season ${this.weapon.season}`
       } else {
         return null
       }
@@ -573,6 +580,7 @@ export default {
             &:hover {
               @media (min-width: $tablet) {
                 .icon-component.complete {
+                  opacity: 0;
                   opacity: 0;
                 }
                 .icon-component.remove {
