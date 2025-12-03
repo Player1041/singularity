@@ -386,11 +386,11 @@ export default {
       }
       &.chroma-flux {
         @include chroma-flux-camouflage-background;
-        color: black;
+        color: white;
       }
       &.genesis {
         @include genesis-camouflage-background;
-        color: black;
+        color: white;
       }
       &.shattered-gold {
         @include shattered-gold-camouflage-background;
