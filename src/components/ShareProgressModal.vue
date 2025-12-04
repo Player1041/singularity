@@ -26,11 +26,11 @@
             />
             <div class="stat-info">
               <h3>{{ name }}</h3>
-              <div class="progress-text">{{ count }} / {{ totalWeapons }}</div>
+              <div class="progress-text">{{ count }} / {{ totalRequired }}</div>
               <div class="mini-track">
                 <div
                   class="mini-fill"
-                  :style="{ width: `${(Number(count) / totalWeapons) * 100}%`, background: getCamoGradient(String(name)) }">
+                  :style="{ width: `${Math.min((Number(count) / totalRequired) * 100, 100)}%`, background: getCamoGradient(String(name)) }">
                 </div>
               </div>
             </div>
@@ -64,32 +64,36 @@ const shareCardRef = ref<HTMLElement | null>(null);
 // 3. Computed Properties
 const weapons = computed(() => store.weapons);
 
-const totalWeapons = computed(() => {
-  return weapons.value.length || 1;
+const totalRequired = computed(() => {
+  return weapons.value.filter((w: any) => !w.season || w.season === 0).length || 1;
 });
 
-// BRANDING LOGIC: Determines the Title and Gradient based on the mode
+// BRANDING LOGIC: Updates to match _variables.scss exactly
 const modeBranding = computed(() => {
   switch (props.mode) {
     case 'zombies':
       return {
         title: 'Infestation',
-        gradient: 'linear-gradient(135deg, #84CC16, #365314)' // Green
+        // Matches $infestation-gradient
+        gradient: 'linear-gradient(90deg, #84CC16, #365314)'
       }
     case 'campaign':
       return {
         title: 'Genesis',
-        gradient: 'linear-gradient(135deg, #E879F9, #BE185D)' // Pink
+        // Matches $genesis-gradient
+        gradient: 'linear-gradient(90deg, #E879F9, #BE185D)'
       }
     case 'warzone':
       return {
         title: 'Apocalypse',
-        gradient: 'linear-gradient(135deg, #FCA5A5, #991B1B)' // Red/Orange
+        // Matches $apocalypse-gradient
+        gradient: 'linear-gradient(90deg, #FCA5A5, #991B1B)'
       }
     default: // multiplayer
       return {
         title: 'Singularity',
-        gradient: 'linear-gradient(135deg, #C084FC, #6B21A8)' // Purple
+        // Matches $singularity-gradient
+        gradient: 'linear-gradient(90deg, #C084FC, #6B21A8)'
       }
   }
 });
@@ -137,21 +141,24 @@ const currentStats = computed(() => {
   return {};
 });
 
-// HELPER METHODS
+// HELPER METHODS - Matches _variables.scss
 const getCamoGradient = (name: string) => {
   const gradients: Record<string, string> = {
     'Shattered Gold': 'linear-gradient(90deg, #FCD34D, #B45309)',
     'Arclight': 'linear-gradient(90deg, #E5E7EB, #9CA3AF)',
     'Tempest': 'linear-gradient(90deg, #22D3EE, #0E7490)',
     'Singularity': 'linear-gradient(90deg, #C084FC, #6B21A8)',
+
     'Golden Dragon': 'linear-gradient(90deg, #FBBF24, #991B1B)',
     'Bloodstone': 'linear-gradient(90deg, #F87171, #7F1D1D)',
     'Doomsteel': 'linear-gradient(90deg, #94A3B8, #475569)',
     'Infestation': 'linear-gradient(90deg, #84CC16, #365314)',
+
     'Molten Gold': 'linear-gradient(90deg, #F59E0B, #B45309)',
-    'Moonstone': 'linear-gradient(90deg, #C4B5FD, #7C3AED)',
-    'Chroma Flux': 'linear-gradient(90deg, #F0ABFC, #A855F7)',
-    'Genesis': 'linear-gradient(90deg, #E879F9, #BE185D)',
+    'Moonstone': 'linear-gradient(90deg, #E2E8F0, #64748B)',
+    'Chroma Flux': 'linear-gradient(90deg, #7C3AED, #2563EB)',
+    'Genesis': 'linear-gradient(90deg, #0F172A, #0D9488)',
+
     'Golden Damascus': 'linear-gradient(90deg, #D97706, #7C2D12)',
     'Starglass': 'linear-gradient(90deg, #67E8F9, #06B6D4)',
     'Absolute Zero': 'linear-gradient(90deg, #A5F3FC, #0891B2)',
@@ -165,15 +172,11 @@ const generateImage = async () => {
   if (isGenerating.value) return;
   isGenerating.value = true;
 
-  // Wait for DOM
   await new Promise(resolve => setTimeout(resolve, 150));
 
   try {
     const element = shareCardRef.value;
-
-    if (!element) {
-      throw new Error('Share card element not found');
-    }
+    if (!element) throw new Error('Share card element not found');
 
     const canvas = await html2canvas(element, {
       useCORS: true,
@@ -239,9 +242,8 @@ defineExpose({
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 20px; /* Space between the gradient box and the text */
+      gap: 20px;
 
-      /* The Gradient Box (Icon) */
       .dynamic-icon {
         width: 48px;
         height: 48px;
@@ -250,7 +252,7 @@ defineExpose({
       }
 
       h1 {
-        font-size: 56px; /* Large, bold title */
+        font-size: 56px;
         font-weight: 800;
         margin: 0;
         color: white;

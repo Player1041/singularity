@@ -21,15 +21,6 @@ $silver: #d7d7d7;
 $pink: #d11f91;
 $cyan: #1fd1d1;
 
-$dark-matter-1: #332BA6;
-$dark-matter-2: #9D75DF;
-
-$nebula-1: $pink;
-$nebula-2: $cyan;
-
-$abyss-1: #70CD91;
-$abyss-2: #2566AA;
-
 $border-radius: 3px;
 $transition: 0.25s ease;
 $font-family: Inter, sans-serif;
@@ -38,25 +29,33 @@ $container-width: 1400px;
 $mobile: 480px;
 $tablet: 1100px;
 
-$military-gradient: url('/military-gradient.svg');
-$special-gradient: url('/special-gradient.svg');
+// --- CAMOUFLAGE GRADIENTS (CSS) ---
+// These now match your OverallProgressComponent logic exactly.
 
-$molten-gold-gradient: url('/molten-gold-gradient.svg');
-$moonstone-gradient: url('/moonstone-gradient.svg');
-$chroma-flux-gradient: url('/chroma-flux-gradient.svg');
-$genesis-gradient: url('/genesis-gradient.svg');
+// Military / Special
+$military-gradient: linear-gradient(90deg, #4b6584, #778ca3); // Generic military
+$special-gradient: linear-gradient(90deg, #20bf6b, #0fb9b1); // Generic special
 
-$shattered-gold-gradient: url('/shattered-gold-gradient.svg');
-$arclight-gradient: url('/arclight-gradient.svg');
-$tempest-gradient: url('/tempest-gradient.svg');
-$singularity-gradient: url('/singularity-gradient.svg');
+// Campaign
+$molten-gold-gradient: linear-gradient(90deg, #F59E0B, #B45309);
+$moonstone-gradient: linear-gradient(90deg, #E2E8F0, #64748B);
+$chroma-flux-gradient: linear-gradient(90deg, #7C3AED, #2563EB);
+$genesis-gradient: linear-gradient(90deg, #0F172A, #0D9488);
 
-$golden-dragon-gradient: url('/golden-dragon-gradient.svg');
-$bloodstone-gradient: url('/bloodstone-gradient.svg');
-$doomsteel-gradient: url('/doomsteel-gradient.svg');
-$infestation-gradient: url('/infestation-gradient.svg');
+// Multiplayer
+$shattered-gold-gradient: linear-gradient(90deg, #FCD34D, #B45309);
+$arclight-gradient: linear-gradient(90deg, #E5E7EB, #9CA3AF);
+$tempest-gradient: linear-gradient(90deg, #22D3EE, #0E7490);
+$singularity-gradient: linear-gradient(90deg, #C084FC, #6B21A8);
 
-$golden-damascus-gradient: url('/golden-damascus-gradient.svg');
-$starglass-gradient: url('/starglass-gradient.svg');
-$absolute-zero-gradient: url('/absolute-zero-gradient.svg');
-$apocalypse-gradient: url('/apocalypse-gradient.svg');
+// Zombies
+$golden-dragon-gradient: linear-gradient(90deg, #FBBF24, #991B1B);
+$bloodstone-gradient: linear-gradient(90deg, #F87171, #7F1D1D);
+$doomsteel-gradient: linear-gradient(90deg, #94A3B8, #475569);
+$infestation-gradient: linear-gradient(90deg, #84CC16, #365314);
+
+// Warzone
+$golden-damascus-gradient: linear-gradient(90deg, #D97706, #7C2D12);
+$starglass-gradient: linear-gradient(90deg, #67E8F9, #06B6D4);
+$absolute-zero-gradient: linear-gradient(90deg, #A5F3FC, #0891B2);
+$apocalypse-gradient: linear-gradient(90deg, #FCA5A5, #991B1B);

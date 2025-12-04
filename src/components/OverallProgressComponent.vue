@@ -29,7 +29,6 @@
 import { mapState } from 'pinia'
 import { useStore } from '@/stores/store'
 import { convertToKebabCase } from '@/utils/utils'
-import ShareProgressModal from '@/components/ShareProgressModal.vue'
 
 export default {
   props: {
@@ -79,7 +78,9 @@ export default {
     },
 
     totalWeapons() {
-      return this.weapons.length
+      // Only count weapons that are Season 0 (Base game weapons)
+      // This allows the progress to exceed the total (e.g. 50/30) if DLC weapons are completed
+      return this.weapons.filter((w) => !w.season || w.season === 0).length
     },
   },
 
@@ -99,9 +100,9 @@ export default {
         'Infestation': 'linear-gradient(90deg, #84CC16, #365314)',
 
         'Molten Gold': 'linear-gradient(90deg, #F59E0B, #B45309)',
-        'Moonstone': 'linear-gradient(90deg, #C4B5FD, #7C3AED)',
-        'Chroma Flux': 'linear-gradient(90deg, #F0ABFC, #A855F7)',
-        'Genesis': 'linear-gradient(90deg, #E879F9, #BE185D)',
+        'Moonstone': 'linear-gradient(90deg, #E2E8F0, #64748B)',
+        'Chroma Flux': 'linear-gradient(90deg, #7C3AED, #2563EB)',
+        'Genesis': 'linear-gradient(90deg, #0F172A, #0D9488)',
 
         'Golden Damascus': 'linear-gradient(90deg, #D97706, #7C2D12)',
         'Starglass': 'linear-gradient(90deg, #67E8F9, #06B6D4)',

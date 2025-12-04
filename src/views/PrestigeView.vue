@@ -11,6 +11,10 @@
       </div>
     </div>
 
+    <div class="filter-container">
+      <FiltersComponent :options="filterOptions" :show-info="true" />
+    </div>
+
     <transition-group name="fade" tag="div" class="container">
       <div v-if="showFavorites" :key="'favorites'" class="category">
         <h2>
@@ -65,9 +69,10 @@
 <script>
 import { mapActions, mapState } from 'pinia'
 import { useStore } from '@/stores/store'
-
 import AlertComponent from '@/components/AlertComponent.vue'
 import PrestigeWeapon from '@/components/PrestigeWeapon.vue'
+import FiltersComponent from '@/components/FiltersComponent.vue'
+import prestigeMasterList from '@/data/requirements/prestige'
 
 import prestigeMasterList from '@/data/requirements/prestige'
 
@@ -75,6 +80,7 @@ export default {
   components: {
     AlertComponent,
     PrestigeWeapon,
+    FiltersComponent,
   },
 
   data() {
@@ -85,16 +91,30 @@ export default {
   },
 
   computed: {
-    ...mapState(useStore, ['preferences', 'weapons']),
+    ...mapState(useStore, ['preferences', 'weapons', 'filters']),
 
     showFavorites() {
       return this.preferences.favorites
     },
 
-    masterList() { return prestigeMasterList },
+    masterList() {
+      return prestigeMasterList
+    },
+
+    filterOptions() {
+      return [
+        {
+          label: this.$t('filters.hide_middle_prestige'),
+          key: 'hideMiddlePrestigeCamos',
+          type: 'checkbox',
+        },
+      ]
+    },
 
     allWeaponsAsList() {
       const list = []
+      const { hideMiddlePrestigeCamos } = this.filters
+      const camosToHide = ['Cobalt Circuit', 'Vermilion Cypher', 'Violet Network']
 
       for (const [categoryName, categoryData] of Object.entries(this.masterList)) {
         for (const [weaponName, weaponData] of Object.entries(categoryData)) {
@@ -102,6 +122,8 @@ export default {
           const formattedUnlocks = []
 
           for (const [camoName, camoData] of Object.entries(camos)) {
+            if (hideMiddlePrestigeCamos && camosToHide.includes(camoName)) continue
+
             formattedUnlocks.push({
               name: camoName,
               requirement: this.formatRequirement(camoData),
@@ -189,7 +211,7 @@ export default {
         return data.amount >= 250 ? 'Universal' : 'Specific'
       }
       return 'Universal'
-    }
+    },
   },
 }
 </script>
@@ -226,6 +248,14 @@ export default {
       }
     }
   }
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 25px;
+  max-width: 600px;
+  width: 100%;
 }
 
 .container {
