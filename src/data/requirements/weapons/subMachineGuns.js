@@ -166,9 +166,9 @@ const specialCamouflages = {
       "Network": { "amount": 25, "type": "kills_shortly_after_moving" }
     },
     "warzone": {
-      "Shimmer": { "amount": 5, "type": "eliminations_while_moving" },
-      "Tyrant": { "amount": 5, "type": "eliminations_shortly_after_sprinting" },
-      "Trace": { "amount": 5, "type": "eliminations_while_sliding" }
+      "Shimmer": { "amount": 5, "type": "kills_while_moving" },
+      "Tyrant": { "amount": 5, "type": "kills_shortly_after_sprinting" },
+      "Trace": { "amount": 5, "type": "kills_while_sliding" }
     }
   },
 

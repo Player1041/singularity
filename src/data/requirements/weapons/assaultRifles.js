@@ -167,8 +167,8 @@ const specialCamouflages = {
     },
     "warzone": {
       "Shimmer": { "amount": 5, "type": "headshots" },
-      "Tyrant": { "amount": 5, "type": "eliminations_without_taking_damage" },
-      "Trace": { "amount": 5, "type": "eliminations_shortly_after_sprinting" }
+      "Tyrant": { "amount": 5, "type": "kills_without_taking_damage" },
+      "Trace": { "amount": 5, "type": "kills_shortly_after_sprinting" }
     }
   }
 }

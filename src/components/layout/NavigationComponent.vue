@@ -9,20 +9,8 @@
       <router-link to="/">{{ $t('general.multiplayer') }}</router-link>
       <router-link to="/zombies">{{ $t('general.zombies') }}</router-link>
       <router-link to="/campaign">{{ $t('general.campaign') }}</router-link>
-
-      <span
-        class="disabled-link-wrapper"
-        v-tippy="{
-          content: $t('general.coming_soon'),
-          placement: 'bottom',
-        }">
-        <router-link to="/warzone" class="disabled-link">
-          {{ $t('general.warzone') }}
-        </router-link>
-      </span>
-
+      <router-link to="/warzone">{{ $t('general.warzone') }}</router-link>
       <router-link to="/prestige">{{ $t('general.prestige') }}</router-link>
-
       <button
         class="icon-btn share"
         @click="triggerShare"
