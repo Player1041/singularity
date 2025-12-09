@@ -14,9 +14,9 @@ const universalCamouflages = {
     "QWERTY": { amount: 250, type: "weapon_prestige_master" },
   },
   "Ballistic Knife": {
-    PrestigeA: { amount: 1, type: "weapon_prestige" },
-    PrestigeB: { amount: 2, type: "weapon_prestige" },
-    PrestigeC: { amount: 250, type: "weapon_prestige_master" },
+    "Stinger": { amount: 1, type: "weapon_prestige" },
+    "Barbed": { amount: 2, type: "weapon_prestige" },
+    "Elegant": { amount: 250, type: "weapon_prestige_master" },
   },
 }
 
