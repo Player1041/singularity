@@ -28,9 +28,9 @@ const specialCamouflages = {
       "Network": { "amount": 3, "type": "kills_in_a_single_shot", "times": 10 }
     },
     "warzone": {
-      "Shimmer": {"amount": 5, "type": "tbd"},
-      "Tyrant": {"amount": 5, "type": "tbd"},
-      "Trace": {"amount": 5, "type": "tbd"}
+      "Shimmer": {"amount": 2, "type": "kills_without_taking_damage"},
+      "Tyrant": {"amount": 5, "type": "kills_or_vehicle_destructions"},
+      "Trace": {"amount": 2, "type": "launcher_kills_while_moving"}
     }
   },
 
@@ -51,9 +51,9 @@ const specialCamouflages = {
       "Network": { "amount": 50, "type": "specific_enemy_kills", "enemy": 'Guild Tech' }
     },
     "warzone": {
-      "Shimmer": {"amount": 5, "type": "tbd"},
-      "Tyrant": {"amount": 5, "type": "tbd"},
-      "Trace": {"amount": 5, "type": "tbd"}
+      "Shimmer": {"amount": 2, "type": "launcher_kills_without_taking_damage"},
+      "Tyrant": {"amount": 5, "type": "kills_or_vehicle_destructions"},
+      "Trace": {"amount": 2, "type": "launcher_kills_while_moving"}
     }
   },
 }

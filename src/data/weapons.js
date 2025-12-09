@@ -37,7 +37,7 @@ export const weaponMetadata = {
     'Ballistic Knife': { season: 1, releaseDate: '2025-12-04' },
 
   // Special
-    'NX Ravager': { season: 1, releaseDate: '2025-12-31' },
+    'NX Ravager': { season: 1, releaseDate: '2025-12-11' },
 }
 
 
