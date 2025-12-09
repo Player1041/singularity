@@ -98,28 +98,37 @@ export default {
       if (!challenge) return 'TBA'
 
       const { amount, type, seconds, times, enemy, attachment, wildcard, specialty, mod, tier } = challenge
+      let translation = ''
 
       if (enemy) {
-        return this.$t(`challenges.types.${type}`, { amount, enemy })
+        translation = this.$t(`challenges.types.${type}`, { amount, enemy })
       } else if (mod) {
-        return this.$t(`challenges.types.${type}`, { amount, mod })
+        translation = this.$t(`challenges.types.${type}`, { amount, mod })
       } else if (tier) {
-        return this.$t(`challenges.types.${type}`, { amount, tier })
+        translation = this.$t(`challenges.types.${type}`, { amount, tier })
       } else if (attachment) {
-        return this.$t(`challenges.types.${type}`, { amount, attachment })
+        translation = this.$t(`challenges.types.${type}`, { amount, attachment })
       } else if (seconds) {
-        return this.$t(`challenges.types.${type}`, { amount, seconds, times })
+        translation = this.$t(`challenges.types.${type}`, { amount, seconds, times })
       } else if (times) {
-        return this.$t(`challenges.types.${type}`, { amount, times })
+        translation = this.$t(`challenges.types.${type}`, { amount, times })
       } else if (wildcard) {
-        return this.$t(`challenges.types.${type}`, { amount, wildcard })
+        translation = this.$t(`challenges.types.${type}`, { amount, wildcard })
       } else if (specialty) {
-        return this.$t(`challenges.types.${type}`, { amount, specialty })
+        translation = this.$t(`challenges.types.${type}`, { amount, specialty })
       } else if (amount) {
-        return this.$t(`challenges.types.${type}`, { amount })
+        translation = this.$t(`challenges.types.${type}`, { amount })
       } else {
-        return this.$t(`challenges.types.${type}`)
+        translation = this.$t(`challenges.types.${type}`)
       }
+
+      if (this.progressKey === 'warzone') {
+        translation = translation
+          .replace(/\bKills\b/g, 'Eliminations')
+          .replace(/\bkills\b/g, 'Eliminations')
+      }
+
+      return translation
     },
   },
 }
